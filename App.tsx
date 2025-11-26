@@ -7,6 +7,8 @@ import MusicLabel from './components/MusicLabel';
 import TradeDex from './components/TradeDex';
 import AmmLpPool from './components/AmmLpPool';
 import About from './components/About';
+import Rewards from './components/Rewards';
+import Socials from './components/Socials';
 import { NavigationItem } from './types';
 
 const App: React.FC = () => {
@@ -26,8 +28,12 @@ const App: React.FC = () => {
         return <TradeDex />;
       case NavigationItem.AMM_LP_POOL:
         return <AmmLpPool />;
+      case NavigationItem.REWARDS:
+        return <Rewards />;
       case NavigationItem.ABOUT:
         return <About />;
+      case NavigationItem.SOCIALS:
+        return <Socials />;
       default:
         // Placeholder for other routes
         return (
@@ -52,7 +58,8 @@ const App: React.FC = () => {
       <Sidebar activeItem={activeItem} onNavigate={setActiveItem} />
       
       {/* Main Content Area */}
-      <div className="flex-1 ml-64 relative flex flex-col h-full overflow-hidden">
+      {/* Adjusted padding top for mobile header (pt-16) and left margin for desktop sidebar (md:ml-64) */}
+      <div className="flex-1 md:ml-64 relative flex flex-col h-full overflow-hidden pt-16 md:pt-0">
         {renderContent()}
       </div>
     </div>

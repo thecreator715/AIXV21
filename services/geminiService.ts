@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 
 let chatSession: Chat | null = null;
@@ -10,12 +11,15 @@ const getGenAI = (): GoogleGenAI => {
   return new GoogleGenAI({ apiKey });
 };
 
-export const initializeChat = async (history: {role: string, parts: {text: string}[]}[] = []) => {
+export const initializeChat = async (
+  systemInstruction: string,
+  history: {role: string, parts: {text: string}[]}[] = []
+) => {
   const ai = getGenAI();
   chatSession = ai.chats.create({
     model: 'gemini-2.5-flash',
     config: {
-      systemInstruction: 'You are AIX, an advanced intelligence protocol assistant. You are concise, technical, and helpful. You speak in a futuristic, slightly robotic but friendly tone.',
+      systemInstruction: systemInstruction,
     },
     history: history.map(h => ({
         role: h.role,
@@ -27,7 +31,8 @@ export const initializeChat = async (history: {role: string, parts: {text: strin
 
 export const sendMessage = async (message: string): Promise<string> => {
   if (!chatSession) {
-    await initializeChat();
+    // Fallback default init if none exists
+    await initializeChat('You are AIX, an advanced intelligence protocol assistant.');
   }
   if (!chatSession) {
     throw new Error("Failed to initialize chat session");
