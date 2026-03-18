@@ -167,25 +167,19 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           onClick={() => onNavigate(NavigationItem.MUSIC_LABEL)}
         />
          <ModuleCard 
-          title="AI Agent"
-          description="Neural Support Interface"
-          icon={<Bot size={24} />}
-          onClick={() => onNavigate(NavigationItem.AI_AGENT)}
-        />
-         <ModuleCard 
           title="Rewards"
           description="Staking & Gamification"
           icon={<Trophy size={24} />}
           onClick={() => onNavigate(NavigationItem.REWARDS)}
         />
-        
-        {/* Row 2 */}
          <ModuleCard 
           title="Trade DEX"
           description="XMANTIC Terminal Interface"
           icon={<BarChart2 size={24} />}
           onClick={() => onNavigate(NavigationItem.TRADE_DEX)}
         />
+        
+        {/* Row 2 */}
         <ModuleCard 
           title="Liquidity Pool"
           description="xMagnetic AMM Interface"
@@ -193,16 +187,28 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           onClick={() => onNavigate(NavigationItem.AMM_LP_POOL)}
         />
          <ModuleCard 
+          title="Wallet"
+          description="Manage Assets & Keys"
+          icon={<Globe size={24} />}
+          onClick={() => onNavigate(NavigationItem.WALLET)}
+        />
+         <ModuleCard 
+          title="Dashboard"
+          description="Connected Wallet Details"
+          icon={<Activity size={24} />}
+          onClick={() => onNavigate(NavigationItem.DASHBOARD)}
+        />
+         <ModuleCard 
+          title="Alpha AI"
+          description="Advanced Intelligence Protocol"
+          icon={<Bot size={24} />}
+          onClick={() => onNavigate(NavigationItem.ALPHA_AI)}
+        />
+         <ModuleCard 
           title="About System"
           description="Documentation & Manifesto"
           icon={<Info size={24} />}
           onClick={() => onNavigate(NavigationItem.ABOUT)}
-        />
-         <ModuleCard 
-          title="Social Grid"
-          description="Community Uplink"
-          icon={<Share2 size={24} />}
-          onClick={() => onNavigate(NavigationItem.SOCIALS)}
         />
       </div>
     </div>

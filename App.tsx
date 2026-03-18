@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
-import AIAgent from './components/AIAgent';
+import AlphaAI from './components/AlphaAI';
 import ArtGallery from './components/ArtGallery';
 import MusicLabel from './components/MusicLabel';
 import TradeDex from './components/TradeDex';
@@ -9,6 +9,8 @@ import AmmLpPool from './components/AmmLpPool';
 import About from './components/About';
 import Rewards from './components/Rewards';
 import Socials from './components/Socials';
+import WalletPage from './components/WalletPage';
+import WalletDashboard from './components/WalletDashboard';
 import { NavigationItem } from './types';
 
 const App: React.FC = () => {
@@ -18,8 +20,12 @@ const App: React.FC = () => {
     switch (activeItem) {
       case NavigationItem.HOME:
         return <Dashboard onNavigate={setActiveItem} />;
-      case NavigationItem.AI_AGENT:
-        return <AIAgent />;
+      case NavigationItem.WALLET:
+        return <WalletPage onNavigate={setActiveItem} />;
+      case NavigationItem.DASHBOARD:
+        return <WalletDashboard />;
+      case NavigationItem.ALPHA_AI:
+        return <AlphaAI />;
       case NavigationItem.ART_GALLERY:
         return <ArtGallery />;
       case NavigationItem.MUSIC_LABEL:

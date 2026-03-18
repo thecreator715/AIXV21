@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Home, 
+  Wallet,
   Palette, 
   Music, 
   ArrowLeftRight, 
@@ -25,12 +26,14 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onNavigate }) => {
   
   const navItems = [
     { id: NavigationItem.HOME, label: 'HOME', icon: <Home size={18} /> },
+    { id: NavigationItem.WALLET, label: 'WALLET', icon: <Wallet size={18} /> },
+    { id: NavigationItem.DASHBOARD, label: 'DASHBOARD', icon: <Cpu size={18} /> },
     { id: NavigationItem.ART_GALLERY, label: 'ART GALLERY', icon: <Palette size={18} /> },
-    { id: NavigationItem.MUSIC_LABEL, label: 'MUSIC LABEL', icon: <Music size={18} /> },
+    { id: NavigationItem.MUSIC_LABEL, label: 'AIX MUSIC', icon: <Music size={18} /> },
     { id: NavigationItem.TRADE_DEX, label: 'TRADE DEX', icon: <ArrowLeftRight size={18} /> },
     { id: NavigationItem.AMM_LP_POOL, label: 'AMM LP POOL', icon: <Droplets size={18} /> },
     { id: NavigationItem.REWARDS, label: 'REWARDS', icon: <Trophy size={18} /> },
-    { id: NavigationItem.AI_AGENT, label: 'AI AGENT', icon: <Bot size={18} /> },
+    { id: NavigationItem.ALPHA_AI, label: 'ALPHA AI', icon: <Cpu size={18} /> },
     { id: NavigationItem.ABOUT, label: 'ABOUT', icon: <Info size={18} /> },
     { id: NavigationItem.SOCIALS, label: 'SOCIALS', icon: <Share2 size={18} /> },
   ];

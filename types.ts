@@ -2,12 +2,14 @@ import React from 'react';
 
 export enum NavigationItem {
   HOME = 'HOME',
+  WALLET = 'WALLET',
+  DASHBOARD = 'DASHBOARD',
   ART_GALLERY = 'ART_GALLERY',
   MUSIC_LABEL = 'MUSIC_LABEL',
   TRADE_DEX = 'TRADE_DEX',
   AMM_LP_POOL = 'AMM_LP_POOL',
   REWARDS = 'REWARDS',
-  AI_AGENT = 'AI_AGENT',
+  ALPHA_AI = 'ALPHA_AI',
   ABOUT = 'ABOUT',
   SOCIALS = 'SOCIALS'
 }
@@ -59,6 +61,7 @@ export interface Track {
   plays: string;
   price: string;
   coverUrl?: string;
+  audioUrl?: string;
 }
 
 export interface Playlist {
