@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import AlphaAI from './components/AlphaAI';
+import AlphaAIPlatform from './components/AlphaAIPlatform';
 import ArtGallery from './components/ArtGallery';
+import NFTFactory from './components/NFTFactory';
 import MusicLabel from './components/MusicLabel';
 import TradeDex from './components/TradeDex';
 import AmmLpPool from './components/AmmLpPool';
@@ -10,7 +12,6 @@ import About from './components/About';
 import Rewards from './components/Rewards';
 import Socials from './components/Socials';
 import WalletPage from './components/WalletPage';
-import WalletDashboard from './components/WalletDashboard';
 import { NavigationItem } from './types';
 
 const App: React.FC = () => {
@@ -22,12 +23,14 @@ const App: React.FC = () => {
         return <Dashboard onNavigate={setActiveItem} />;
       case NavigationItem.WALLET:
         return <WalletPage onNavigate={setActiveItem} />;
-      case NavigationItem.DASHBOARD:
-        return <WalletDashboard />;
       case NavigationItem.ALPHA_AI:
         return <AlphaAI />;
+      case NavigationItem.ALPHA_AI_PLATFORM:
+        return <AlphaAIPlatform />;
       case NavigationItem.ART_GALLERY:
         return <ArtGallery />;
+      case NavigationItem.NFT_FACTORY:
+        return <NFTFactory />;
       case NavigationItem.MUSIC_LABEL:
         return <MusicLabel />;
       case NavigationItem.TRADE_DEX:

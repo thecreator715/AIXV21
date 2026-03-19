@@ -30,28 +30,31 @@ Answer begins at word one. Every word earns its place.
 `;
 
 const COMMANDS = [
-  { name: '/get balance', cmd: '/get balance' },
-  { name: '/get transactions', cmd: '/get transactions' },
-  { name: '/get nfts', cmd: '/get nfts' },
-  { name: '/get info', cmd: '/get info' },
-  { name: '/get lines', cmd: '/get lines' },
-  { name: '/get ledger', cmd: '/get ledger' },
-  { name: '/get server', cmd: '/get server' },
-  { name: '/get offers', cmd: '/get offers' },
-  { name: '/get channels', cmd: '/get channels' },
-  { name: '/address', cmd: '/address' },
-  { name: '/send', cmd: '/send ' },
-  { name: '/trade', cmd: '/trade' },
-  { name: '/disconnect', cmd: '/disconnect' },
-  { name: '/generate', cmd: '/generate' },
-  { name: '/status', cmd: '/status' },
-  { name: '/version', cmd: '/version' },
-  { name: '/about', cmd: '/about' },
-  { name: '/settings', cmd: '/settings' },
-  { name: '/donate', cmd: '/donate' },
-  { name: '/website', cmd: '/website' },
-  { name: '/list', cmd: '/list' },
-  { name: '/help', cmd: '/help' },
+  { name: '/get balance', cmd: '/get balance' }, { name: '/get transactions', cmd: '/get transactions' },
+  { name: '/get nfts', cmd: '/get nfts' }, { name: '/get info', cmd: '/get info' },
+  { name: '/get lines', cmd: '/get lines' }, { name: '/get ledger', cmd: '/get ledger' },
+  { name: '/get server', cmd: '/get server' }, { name: '/get offers', cmd: '/get offers' },
+  { name: '/get channels', cmd: '/get channels' }, { name: '/address', cmd: '/address' },
+  { name: '/send', cmd: '/send ' }, { name: '/trade', cmd: '/trade' },
+  { name: '/disconnect', cmd: '/disconnect' }, { name: '/generate', cmd: '/generate' },
+  { name: '/status', cmd: '/status' }, { name: '/version', cmd: '/version' },
+  { name: '/about', cmd: '/about' }, { name: '/settings', cmd: '/settings' },
+  { name: '/donate', cmd: '/donate' }, { name: '/website', cmd: '/website' },
+  { name: '/list', cmd: '/list' }, { name: '/help', cmd: '/help' },
+  { name: '/clear', cmd: '/clear' }, { name: '/ping', cmd: '/ping' },
+  { name: '/uptime', cmd: '/uptime' }, { name: '/debug', cmd: '/debug' },
+  { name: '/logs', cmd: '/logs' }, { name: '/theme', cmd: '/theme' },
+  { name: '/language', cmd: '/language' }, { name: '/notifications', cmd: '/notifications' },
+  { name: '/export', cmd: '/export' }, { name: '/import', cmd: '/import' },
+  { name: '/backup', cmd: '/backup' }, { name: '/restore', cmd: '/restore' },
+  { name: '/lock', cmd: '/lock' }, { name: '/unlock', cmd: '/unlock' },
+  { name: '/profile', cmd: '/profile' }, { name: '/contacts', cmd: '/contacts' },
+  { name: '/history', cmd: '/history' }, { name: '/search', cmd: '/search' },
+  { name: '/filter', cmd: '/filter' }, { name: '/sort', cmd: '/sort' },
+  { name: '/refresh', cmd: '/refresh' }, { name: '/sync', cmd: '/sync' },
+  { name: '/connect', cmd: '/connect' }, { name: '/disconnect-all', cmd: '/disconnect-all' },
+  { name: '/proxy', cmd: '/proxy' }, { name: '/api-key', cmd: '/api-key' },
+  { name: '/network', cmd: '/network' }, { name: '/reset', cmd: '/reset' },
 ];
 
 const AlphaAI: React.FC = () => {
@@ -151,12 +154,12 @@ const AlphaAI: React.FC = () => {
         )}
       </div>
 
-      <div className="mb-4 flex flex-wrap gap-2">
+      <div className="mb-4 overflow-x-auto whitespace-nowrap flex gap-2 pb-2">
         {COMMANDS.map(c => (
           <button
             key={c.cmd}
             onClick={() => setInput(c.cmd)}
-            className="text-xs bg-zinc-800 hover:bg-emerald-900 text-zinc-400 hover:text-emerald-400 px-3 py-1 rounded border border-zinc-700 transition-colors"
+            className="text-xs bg-zinc-800 hover:bg-emerald-900 text-zinc-400 hover:text-emerald-400 px-3 py-1 rounded border border-zinc-700 transition-colors flex-shrink-0"
           >
             {c.name}
           </button>

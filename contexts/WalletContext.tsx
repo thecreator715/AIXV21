@@ -151,13 +151,14 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
     } catch (err: any) {
       console.error("Error fetching balances:", err);
-      if (err?.data?.error === 'actNotFound') {
+      const errorMessage = err.message || (err.data && err.data.error) || "";
+      if (errorMessage.includes('actNotFound') || errorMessage.toLowerCase().includes('account not found')) {
         setXrpBalance('0');
         setAixBalance('0');
         setNfts([]);
         setError("Wallet is unfunded. Send at least 10 XRP to this address to activate it on the XRPL.");
       } else {
-        setError(err.message || "Failed to fetch balances");
+        setError(errorMessage || "Failed to fetch balances");
       }
     }
   };

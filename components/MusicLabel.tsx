@@ -49,6 +49,7 @@ const MusicLabel: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [rssTracks, setRssTracks] = useState<Track[]>([]);
   const [loadingRss, setLoadingRss] = useState(false);
+  const [rssError, setRssError] = useState<string | null>(null);
   const { wallet, client, isConnected, refreshBalances } = useWallet();
   const [isMinting, setIsMinting] = useState(false);
   const [mintError, setMintError] = useState('');
@@ -57,8 +58,12 @@ const MusicLabel: React.FC = () => {
   useEffect(() => {
     if (selectedArtistName === 'SECRET SOCIETY') {
       setLoadingRss(true);
+      setRssError(null);
       fetch('https://feeds.soundcloud.com/users/soundcloud:users:1682237552/sounds.rss')
-        .then(res => res.text())
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          return res.text();
+        })
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
         .then(data => {
           const items = data.querySelectorAll("item");
@@ -87,9 +92,11 @@ const MusicLabel: React.FC = () => {
         .catch(err => {
           console.error("Error fetching RSS:", err);
           setLoadingRss(false);
+          setRssError("Failed to fetch RSS feed. This is likely a CORS restriction.");
         });
     } else {
       setRssTracks([]);
+      setRssError(null);
     }
   }, [selectedArtistName]);
 

@@ -92,8 +92,11 @@ export const handleCommand = async (command: string, walletContext: WalletContex
     case '/help':
     case '/list':
       return `Available commands:
-/get balance, /get transactions, /get nfts, /get info, /get lines, /get ledger, /get server, /get offers, /get channels
-/address, /send <xrp|aix> <amount> <address>, /trade, /disconnect, /generate, /status, /version, /about, /settings, /donate, /website, /list`;
+/get balance, /get transactions, /get nfts, /get info, /get lines, /get ledger, /get server, /get offers, /get channels,
+/address, /send <xrp|aix> <amount> <address>, /trade, /disconnect, /generate, /status, /version, /about, /settings, /donate, /website,
+/clear, /ping, /uptime, /debug, /logs, /theme, /language, /notifications, /export, /import,
+/backup, /restore, /lock, /unlock, /profile, /contacts, /history, /search, /filter, /sort,
+/refresh, /sync, /connect, /disconnect-all, /proxy, /api-key, /network, /reset`;
     default:
       return null; // Not a command
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart2, Activity, Globe, Palette, Music, Trophy, Bot, Info, Share2, Droplets } from 'lucide-react';
+import { BarChart2, Activity, Globe, Palette, Factory, Music, Trophy, Bot, Terminal, Info, Share2, Droplets } from 'lucide-react';
 import MetricCard from './MetricCard';
 import ModuleCard from './ModuleCard';
 import SystemLogs from './SystemLogs';
@@ -161,6 +161,12 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           onClick={() => onNavigate(NavigationItem.ART_GALLERY)}
         />
          <ModuleCard 
+          title="NFT Factory"
+          description="Minting Terminal"
+          icon={<Factory size={24} />}
+          onClick={() => onNavigate(NavigationItem.NFT_FACTORY)}
+        />
+         <ModuleCard 
           title="Music Label"
           description="Streaming & Artist Management"
           icon={<Music size={24} />}
@@ -193,16 +199,16 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           onClick={() => onNavigate(NavigationItem.WALLET)}
         />
          <ModuleCard 
-          title="Dashboard"
-          description="Connected Wallet Details"
-          icon={<Activity size={24} />}
-          onClick={() => onNavigate(NavigationItem.DASHBOARD)}
-        />
-         <ModuleCard 
           title="Alpha AI"
           description="Advanced Intelligence Protocol"
           icon={<Bot size={24} />}
           onClick={() => onNavigate(NavigationItem.ALPHA_AI)}
+        />
+         <ModuleCard 
+          title="Alpha AI Platform"
+          description="Mainframe Terminal"
+          icon={<Terminal size={24} />}
+          onClick={() => onNavigate(NavigationItem.ALPHA_AI_PLATFORM)}
         />
          <ModuleCard 
           title="About System"
